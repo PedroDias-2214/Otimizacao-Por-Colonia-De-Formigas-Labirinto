@@ -40,8 +40,8 @@ def carregar_dados(arquivos):
 
 def configurar_cores():
     cores_mapa = { # Os numeros são negativos pois numeros positivos são feromonios
-        -3: (0.1, 0.1, 1.0),  # Azul -> Comida
-        -2: (1.0, 0.1, 0.1),  # Vermelho -> Ninho 
+        -3: (0.1, 0.1, 1.0),  # Azul -> Ninho
+        -2: (0.5, 1.0, 0.5),  # Verde claro -> Comida 
         -1: (0.2, 0.2, 0.2)   # Cinza Escuro -> Parede
     }
     

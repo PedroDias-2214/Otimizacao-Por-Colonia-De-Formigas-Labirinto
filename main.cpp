@@ -8,8 +8,8 @@
 #include "Labirinto.h"
 #include "Formiga.h"
 
-constexpr int LARGURA_LAB = 150;
-constexpr int ALTURA_LAB = 150;
+constexpr int LARGURA_LAB = 75;
+constexpr int ALTURA_LAB = 75;
 constexpr int N_ITERACOES = 350;
 constexpr int N_FORMIGAS = 100;
 constexpr double ALFA = 1.0;  // Peso do feromônio
@@ -17,7 +17,7 @@ constexpr double BETA = 4.0;  // Peso da heurística
 constexpr double TAXA_EVAPORACAO = 0.35; // Taxa de evaporação do feromônio
 constexpr double INTENSIDADE_FEROMONIO = LARGURA_LAB * ALTURA_LAB * 0.1; // Valor base do deposito de feromonio
 constexpr double MIN_FEROMONIO = 0.01; // Feromônio mínimo no bloco
-constexpr int SALVAR_ITERACAO = 3; // de quantas em quantas iterações ele vai criar um arquivo
+constexpr int SALVAR_ITERACAO = 2; // de quantas em quantas iterações ele vai criar um arquivo
 constexpr bool LABIRINTO_DIFICIL = true; // Labirinto gera com paredes adicionais, tornando o caminho menos previsivel
 // a chance de ser gerada uma parede é de 20% para cada chão adjacente a um pilar.
 // Isto pode aumentar a complexidade do código, e o código vai gerar labirintos até gerar um labirinto possível

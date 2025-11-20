@@ -50,8 +50,8 @@ void Labirinto::criar_grid_dificil() {
             }
         }
 
-        this-> pos_comida = {1, this->altura-2};
-        this-> pos_ninho = {this->largura-2, 1};
+        this-> pos_ninho = {1, this->altura-2};
+        this-> pos_comida = {this->largura-2, 1};
 
         this-> grid[this-> pos_ninho.x][this-> pos_ninho.y] = 3; // ninho
         this-> grid[this-> pos_comida.x][this-> pos_comida.y] = 2; // comida
