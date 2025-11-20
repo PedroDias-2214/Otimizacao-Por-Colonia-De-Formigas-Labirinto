@@ -8,8 +8,8 @@
 #include "Labirinto.h"
 #include "Formiga.h"
 
-constexpr int LARGURA_LAB = 75;
-constexpr int ALTURA_LAB = 75;
+constexpr int LARGURA_LAB = 150;
+constexpr int ALTURA_LAB = 150;
 constexpr int N_ITERACOES = 350;
 constexpr int N_FORMIGAS = 100;
 constexpr double ALFA = 1.0;  // Peso do feromônio
