@@ -13,7 +13,8 @@ Labirinto::Labirinto(const int largura, const int altura, const bool labirinto_d
     if (largura <= 10 || altura <= 10) {
         throw std::runtime_error("Altura e Largura devem ser maiores que 10!");
     }
-    std::cout << "LABIRINTO DIFICIL = " << labirinto_dificil << std::endl;
+    std::cout << "LABIRINTO DIFICIL: " << std::boolalpha << labirinto_dificil << std::endl;
+    std::cout << std::noboolalpha;
 
     this->largura = largura;
     this->altura = altura;

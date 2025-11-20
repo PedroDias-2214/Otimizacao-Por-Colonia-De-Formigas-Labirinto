@@ -8,8 +8,8 @@
 #include "Labirinto.h"
 #include "Formiga.h"
 
-constexpr int LARGURA_LAB = 200;
-constexpr int ALTURA_LAB = 200;
+constexpr int LARGURA_LAB = 150;
+constexpr int ALTURA_LAB = 150;
 constexpr int N_ITERACOES = 350;
 constexpr int N_FORMIGAS = 100;
 constexpr double ALFA = 1.0;  // Peso do feromônio
@@ -29,7 +29,10 @@ constexpr int ELITE = 5; // quantas formigas que vão depositar feromonios
 
 void salvar_iteracao(const Labirinto& lab, const std::string& arquivo) {
     std::ofstream arq_out(arquivo);
-    if (!arq_out.is_open()) return;
+    if (!arq_out.is_open()) {
+        std::cerr << "ERRO! Nao foi possivel criar o arquivo " << arquivo << std::endl;
+        return;
+    }
 
     for (int i=0; i<lab.get_largura(); i++) {
         for (int j=0; j<lab.get_altura(); j++) {
@@ -75,16 +78,16 @@ int main () {
         int menor_tamanho_global = -1;
 
 #ifdef _WIN32
-        system("rd /s /q visualizacao");
-        system("mkdir visualizacao");
+        system("if not exist ..\\visualizacao mkdir ..\\visualizacao");
+        system("del /Q ..\\visualizacao\\*.csv 2>nul");
 #else
-        system("rm -rf visualizacao");
-        system("mkdir -p visualizacao");
+        system("mkdir -p ../visualizacao");
+        system("rm -f ../visualizacao/*.csv");
 #endif
 
         {
         std::stringstream ss;
-        ss << "visualizacao/iter_000.csv";
+        ss << "../visualizacao/iter_000.csv";
         salvar_iteracao(lab, ss.str()); // salva a inicial antes das formigas andarem nele
     } // fazer {} gera um bloco, como eu uso a variavel ss depois, deixei dentro do bloco pra não interferir
 
@@ -153,7 +156,7 @@ int main () {
 
             if (((iteracao+1) % SALVAR_ITERACAO == 0 || (iteracao+1) == N_ITERACOES-1) && iteracao!=0) {
                 std::stringstream ss;
-                ss << "visualizacao/iter_";
+                ss << "../visualizacao/iter_";
                 ss << std::setw(3) << std::setfill('0') << iteracao;
                 ss << ".csv";
 
